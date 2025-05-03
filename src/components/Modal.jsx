@@ -2,10 +2,9 @@ import ReactDom from 'react-dom';
 
 export default function Modal(props) {
   const { onClose, teamName, teamData } = props;
-  console.log(teamData); // To ensure you're getting the correct data
 
   if (!teamData) {
-    return null; // In case the teamData is not yet available
+    return null;
   }
 
   return ReactDom.createPortal(
