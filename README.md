@@ -23,7 +23,8 @@ This project is a **Football Team Stats Viewer** web application built with **Re
 3. **Team Details**:
    - Clicking on a team logo opens a modal displaying detailed information about the team.
    - The data is fetched from the [TheSportsDB API](https://www.thesportsdb.com/) for most teams.
-   - For "Robbers FC," custom data is displayed.
+   - The logos were taken from [luukhopman's Github Repo](https://github.com/luukhopman/football-logos)
+   - For "Robbers FC" custom data is displayed.
 
 4. **Modal**:
    - The modal displays the team's logo, founding year, city, stadium, and league.
