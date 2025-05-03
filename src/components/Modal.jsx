@@ -1,11 +1,13 @@
 import ReactDom from 'react-dom';
+import { useState } from "react"
 
 export default function Modal(props) {
   const { onClose, teamName, teamData } = props;
-  console.log(teamData); // To ensure you're getting the correct data
+  
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
   if (!teamData) {
-    return null; // In case the teamData is not yet available
+    return null; 
   }
 
   return ReactDom.createPortal(
@@ -13,12 +15,17 @@ export default function Modal(props) {
       <div className="modal-underlay" onClick={onClose}></div>
 
       <div className="modal-content" 
-      
-
       onClick={(e) => e.stopPropagation()}>
-      <div className="club-logo-modal"
-      >
-          <img  src={teamData.strLogo} alt={`${teamName} Logo`} />
+      <div className="club-logo-modal">
+      {!logoLoaded && <div className="logo-placeholder">Loading logo...</div>}
+
+          <img
+            src={teamData.strLogo}
+            alt={`${teamName} Logo`}
+            style={{ display: logoLoaded ? 'block' : 'none' }}
+            onLoad={() => setLogoLoaded(true)}
+            onError={() => setLogoLoaded(true)} // in case image fails
+          />
       
         </div>
         <div className="club-description">
